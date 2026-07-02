@@ -7,7 +7,7 @@ const page = () => {
     return (
         <div className=' flex flex-col  justify-center items-center '>
 
-            <Navbar heading='Numeric Stats of IPL' isHome={false} />
+            <Navbar heading='Numeric Stats of NPL' isHome={false} />
 
             <div className="mainStats  flex flex-row justify-center gap-4   items-start  lg:w-[60vw] mt-10">
 

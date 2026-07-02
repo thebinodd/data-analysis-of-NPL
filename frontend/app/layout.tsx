@@ -5,8 +5,8 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "IPL Data Analysis",
-  description: "Explore insights from 2008-2026 IPL seasons with a clean, readable interface. Discover trends, team performance, player impact, and match patterns in the Indian Premier League dataset.",
+  title: "NPL Data Analysis",
+  description: "Explore insights from 2008-2026 Nepal Premier League seasons with a clean, readable interface. Discover trends, team performance, player impact, and match patterns in the Nepal Premier League dataset.",
 };
 
 export default function RootLayout({
