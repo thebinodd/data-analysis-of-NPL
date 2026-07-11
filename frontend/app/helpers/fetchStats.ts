@@ -1,4 +1,4 @@
-
+import { notifyPending } from "./getToaster"
 type Input = {
     id: string,
     head: number,
@@ -17,7 +17,6 @@ const getData = async ({ id, head }: Input) => {
         return {
             "detail" : "Something Went Wrong!"
         }
-
     }
 
 }

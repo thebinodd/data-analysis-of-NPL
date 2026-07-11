@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import {Toaster} from  "react-hot-toast";
 
 
 
@@ -19,7 +19,8 @@ export default function RootLayout({
       lang="en"
       
     >
-      <body className="">{children}</body>
+      
+      <body className=""><Toaster /> {children}</body>
     </html>
   );
 }
