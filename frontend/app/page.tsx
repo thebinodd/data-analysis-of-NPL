@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 export default function Home() {
 
   return (
-    <main className="max-h-screen  bg-[#f7f4ee] text-neutral-950">
+    <main className="max-h-screen   text-neutral-950">
       <section className=" flex min-h-screen justify-center items-center w-screen  flex-col pb-5 sm:px-8 lg:px-10">
         
         <Navbar heading="NPL Insights" isHome={true} />

@@ -3,7 +3,6 @@ from cache.statsCache import cache
 
 
 def mostRuns(head):
-    
     result = (
     data.groupby("batsman")["batsman_runs"]
     .sum()
@@ -22,17 +21,51 @@ def mostRuns(head):
         "unit":"Runs"
     }
 
+def mostFifties(head):
+    
+    total_runs = data.groupby(["match_id" , "batsman"])["batsman_runs"].sum().reset_index(name="runs")
+    fifties = total_runs[(total_runs["runs"]>50) & (total_runs["runs"]<100)]
+    result = fifties["batsman"].value_counts().reset_index().rename(columns={
+            "batsman": "name",
+            "count": "value"
+        }).to_dict(orient="records")
+
+    
+    return {
+        "heading":"Most Fifties By Batsman",
+        "data" : result,
+        "unit":"Fifties"
+    }
+
+def mostHundreds(head):
+    
+    total_runs = data.groupby(["match_id" , "batsman"])["batsman_runs"].sum().reset_index(name="runs")
+    hundreds = total_runs[total_runs["runs"]>=100]
+    result = hundreds["batsman"].value_counts().reset_index().rename(columns={
+            "batsman": "name",
+            "count": "value"
+        }).to_dict(orient="records")
+
+    
+    return {
+        "heading":"Most Hundreds By Batsman",
+        "data" : result,
+        "unit":"Hundreds"
+    }
+
+
+
 def highestScores(head):
     result = (
-        data.groupby(["match_id", "batter"])["runs_batter"]
+        data.groupby(["match_id", "batsman"])["batsman_runs"]
         .sum()
         .sort_values(ascending=False)
         .reset_index()
         .drop_duplicates(subset="match_id", keep="first")
-        [["batter", "runs_batter"]]
+        [["batsman", "batsman_runs"]]
         .head(100).rename(columns={
-        "batter": "name",
-        "runs_batter": "value"
+        "batsman": "name",
+        "batsman_runs": "value"
     })
         .to_dict(orient="records")
     )
@@ -44,13 +77,13 @@ def highestScores(head):
     }
 
 def mostSixes(head):
-    mask = data["runs_batter"] == 6
-    result = (data[mask]["batter"]
+    mask = data["batsman_runs"] == 6
+    result = (data[mask]["batsman"]
               .value_counts()
               .sort_values(ascending=False)
               .head(head)
               .reset_index()
-              .rename(columns={"batter": "name","count": "value"})
+              .rename(columns={"batsman": "name","count": "value"})
               .to_dict(orient="records"))
     return {
         "heading":"Most Sixes By Batsman",
@@ -60,13 +93,13 @@ def mostSixes(head):
 
 def mostFours(head):
 
-    mask = data["runs_batter"] == 4
-    result = (data[mask]["batter"]
+    mask = data["batsman_runs"] == 4
+    result = (data[mask]["batsman"]
               .value_counts()
               .sort_values(ascending=False)
               .head(head)
               .reset_index()
-              .rename(columns={"batter": "name","count": "value"})
+              .rename(columns={"batsman": "name","count": "value"})
               .to_dict(orient="records"))    
     return {
         "heading":"Most Fours By Batsman",

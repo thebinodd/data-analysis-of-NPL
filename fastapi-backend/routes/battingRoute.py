@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from services.battingService import mostRuns , highestScores, mostSixes , mostFours
+from services.battingService import mostRuns , highestScores, mostSixes , mostFours, mostFifties , mostHundreds
 
 router = APIRouter(
     prefix="",
@@ -22,3 +22,11 @@ def most_runs(head:int):
 @router.get("/most_fours")
 def most_fours(head:int):
     return mostFours(head)
+
+@router.get("/most_fifties")
+def most_fifties(head:int):
+    return mostFifties(head)
+
+@router.get("/most_hundreds")
+def most_hundreds(head:int):
+    return mostHundreds(head)

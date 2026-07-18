@@ -24,7 +24,7 @@ const Navbar = ({ heading , isHome }: Input) => {
                 {heading}
               </p>
               <p className="text-sm lg:hidden tracking-widest  flex font-bold  text-neutral-600">
-                of IPL
+                of NPL
               </p>
             </div>
           </div>

@@ -45,7 +45,7 @@ const Stats = ({ data, unit }: any) => {
                             data.data && Object.entries(data.data).map(([value1, value2]: [string, any], index) => {
 
                                 const item = value2 as any
-                                return <IndividualCard key={index} name={item.name} unit={data.unit} stat={String(item.value)} index={index} />
+                                return <IndividualCard key={index} name={item.name} unit={data.unit} stat={(item.value)} index={index} />
                             })
                         }
 
