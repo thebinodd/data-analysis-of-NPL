@@ -35,7 +35,7 @@ const Navbar = ({ heading , isHome }: Input) => {
             <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://github.com/thebinodd/data-analysis-of-IPL" target="_blank">
               Github
             </Link>
-            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://www.kaggle.com/datasets/chaitu20/ipl-dataset2008-2025" target="_blank">
+            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://www.kaggle.com/datasets/samarpanrai/nepal-premier-league-2024-ball-by-ball-data?select=NPL-2024.csv" target="_blank">
               Datasets
             </Link>
             

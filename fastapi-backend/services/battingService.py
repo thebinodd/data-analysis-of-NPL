@@ -34,7 +34,7 @@ def mostFifties(head):
     return {
         "heading":"Most Fifties By Batsman",
         "data" : result,
-        "unit":"Fifties"
+        "unit":"Fiftie(s)"
     }
 
 def mostHundreds(head):
@@ -50,7 +50,7 @@ def mostHundreds(head):
     return {
         "heading":"Most Hundreds By Batsman",
         "data" : result,
-        "unit":"Hundreds"
+        "unit":"Hundred(s)"
     }
 
 
