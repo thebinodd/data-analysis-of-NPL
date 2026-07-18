@@ -5,13 +5,13 @@ from cache.statsCache import cache
 def mostRuns(head):
     
     result = (
-    data.groupby("batter")["batsman_runs"]
+    data.groupby("batsman")["batsman_runs"]
     .sum()
     .sort_values(ascending=False)
     .head(head)
     .reset_index()
     .rename(columns={
-        "batter": "name",
+        "batsman": "name",
         "batsman_runs": "value"
     })
     .to_dict(orient="records")

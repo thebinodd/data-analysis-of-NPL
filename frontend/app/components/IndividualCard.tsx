@@ -4,13 +4,13 @@ import React from 'react'
 type Input = {
     name: string,
     index: number,
-    stat: string,
+    stat: number[],
     unit:string
 }
 
 const IndividualCard = ({ name, index, stat , unit }: Input) => {
     const cardClasses =
-        'flex lg:max-w-[40vw]  cursor-pointer w-[90vw] lg:w-[60vw] justify-between rounded-xl border-2 border-neutral-950  px-4 py-2  sm:px-6'
+        'flex lg:max-w-[40vw]  cursor-pointer w-[90vw] lg:w-[60vw] justify-between rounded-xl border-2 border-neutral-950  px-4 py-1  sm:px-6'
 
     return (
         <div>
@@ -22,7 +22,13 @@ const IndividualCard = ({ name, index, stat , unit }: Input) => {
                                 <span>{index + 1}</span>
                                 <span>{name}</span>
                             </div>
-                            <span>{stat} {unit}</span>
+                            {
+                                stat.map((value, index) => (
+                                    <div key={index} className="right flex flex-row gap-2">
+                                        <span>{value}</span>   
+                                    </div>
+                                ))
+                            }
                         </div> 
                     </div>
                 </div>

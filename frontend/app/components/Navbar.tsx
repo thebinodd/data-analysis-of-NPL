@@ -15,9 +15,9 @@ const Navbar = ({ heading , isHome }: Input) => {
 
         <header className="flex  lg:max-w-[60vw] lg:mt-10 mt-5 w-[90vw] items-center justify-between rounded-xl border-4 border-neutral-950 bg-white px-4 py-3 shadow-[6px_6px_0_0_#111827] sm:px-6">
           <div className="flex items-center gap-3">
-            <img src="https://npl-t20.com/assets/mainlogohighquality-BTC_taV3.png" className="h-16 hidden lg:flex rounded-xl border-slate-800 border-b-6 border-r-4" alt="NPL logo" />
+            <img src="https://npl-t20.com/assets/mainlogohighquality-BTC_taV3.png" className="h-8 hidden lg:flex rounded-xl border-slate-800 border-b-6 border-r-4" alt="NPL logo" />
             <div className={'flex-col  md:flex lg:flex'}>
-              <p className="text-xs font-extrabold uppercase lg:tracking-[0.35em] text-neutral-600">
+              <p className="text-xs font-bold uppercase lg:tracking-[0.35em] text-neutral-600">
                 Data Analysis
               </p>
               <p className="text-sm hidden lg:flex font-semibold  text-neutral-950">
@@ -32,19 +32,19 @@ const Navbar = ({ heading , isHome }: Input) => {
           {
             isHome ? <nav className="flex items-center gap-2 md:flex">
             
-            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-sm font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://github.com/thebinodd/data-analysis-of-IPL" target="_blank">
+            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://github.com/thebinodd/data-analysis-of-IPL" target="_blank">
               Github
             </Link>
-            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-sm font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://www.kaggle.com/datasets/chaitu20/ipl-dataset2008-2025" target="_blank">
+            <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://www.kaggle.com/datasets/chaitu20/ipl-dataset2008-2025" target="_blank">
               Datasets
             </Link>
             
             
           </nav> : <nav className="flex items-center gap-2 md:flex">
-            <button onClick={()=>router.back()} className="rounded-lg border-2 border-neutral-950 bg-yellow-300 px-6 py-2 text-sm font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none cursor-pointer"  >
+            <button onClick={()=>router.back()} className="rounded-lg border-2 border-neutral-950 bg-yellow-300 px-6 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none cursor-pointer"  >
               ← Back
             </button>
-            <button onClick={() => router.push('/')} className="rounded-lg border-2 border-neutral-950 bg-yellow-300 px-6 py-2 text-sm font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none "  >
+            <button onClick={() => router.push('/')} className="rounded-lg border-2 border-neutral-950 bg-yellow-300 px-6 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none "  >
               Home
             </button>
             

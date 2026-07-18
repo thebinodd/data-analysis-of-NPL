@@ -3,4 +3,4 @@ import os
 
 
 
-data = pd.read_csv("datasets/NPL-2025.csv")
+data = pd.read_csv("datasets/npl_dataset.csv")
