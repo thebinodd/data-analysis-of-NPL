@@ -23,7 +23,7 @@ const IndividualCard = ({ name, index, stat , unit }: Input) => {
                                 <span>{name}</span>
                                 
                             </div>
-                            <span className="text-neutral-950">{stat} {unit}</span>
+                            <span className="text-neutral-950 text-sm">{stat} <span className='text-xs'>{unit}</span></span>
 
 
                             

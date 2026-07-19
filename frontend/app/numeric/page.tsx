@@ -43,8 +43,8 @@ const page = () => {
                         <ListCard title="Most 5 Wickets Haul" url="/numeric/most_5_wickets_haul" />
                         <ListCard title="Best Economy Rate" url="/numeric/best_economy_rate" />
                         <ListCard title="Most Wide Balls" url="/numeric/most_wide_balls" />
-                        <ListCard title="Most Noballs" url="/numeric/most_sixes" />
-                        <ListCard title="Most Dot Balls" url="/numeric/most_nineties" />
+                        <ListCard title="Most Noballs" url="/numeric/most_noballs" />
+                        <ListCard title="Most Dot Balls" url="/numeric/most_dot_balls" />
                     </div>
                     
                     </div>
@@ -56,7 +56,7 @@ const page = () => {
 
                     <div className="fieldingStats flex lg:flex-row flex-col gap-4">
                         <div className="lef flex flex-col justify-center gap-2  items-center">
-                        <ListCard title="Most Catch Taken" url="/numeric/most_wickets" />
+                        <ListCard title="Most Catch Taken" url="/numeric/most_catch_taken" />
                     </div>
                     
                     </div>

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from services.battingService import mostRuns , highestScores, mostSixes , mostFours, mostFifties , mostHundreds
+from services.battingService import mostRuns , highestScores, mostSixes , mostFours, mostFifties , mostHundreds , bestAverage , bestStrikeRate , mostNineties
 
 router = APIRouter(
     prefix="",
@@ -30,3 +30,16 @@ def most_fifties(head:int):
 @router.get("/most_hundreds")
 def most_hundreds(head:int):
     return mostHundreds(head)
+
+@router.get("/most_nineties")
+def most_nineties(head:int):
+    return mostNineties(head)
+
+
+@router.get("/best_batting_average")
+def best_batting_average(head:int):
+    return bestAverage(head)
+
+@router.get("/best_batting_strike_rate")
+def best_batting_strike_rate(head:int):
+    return bestStrikeRate(head)

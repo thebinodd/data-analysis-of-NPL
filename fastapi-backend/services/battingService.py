@@ -34,7 +34,7 @@ def mostFifties(head):
     return {
         "heading":"Most Fifties By Batsman",
         "data" : result,
-        "unit":"Fiftie(s)"
+        "unit":"Fifty(s)"
     }
 
 def mostHundreds(head):
@@ -53,6 +53,21 @@ def mostHundreds(head):
         "unit":"Hundred(s)"
     }
 
+def mostNineties(head):
+    
+    total_runs = data.groupby(["match_id" , "batsman"])["batsman_runs"].sum().reset_index(name="runs")
+    fifties = total_runs[(total_runs["runs"]>=90) & (total_runs["runs"]<100)]
+    result = fifties["batsman"].value_counts().reset_index().rename(columns={
+            "batsman": "name",
+            "count": "value"
+        }).to_dict(orient="records")
+
+    
+    return {
+        "heading":"Most Nineties By Batsman",
+        "data" : result,
+        "unit":"Ninety(s)"
+    }
 
 
 def highestScores(head):
@@ -105,4 +120,65 @@ def mostFours(head):
         "heading":"Most Fours By Batsman",
         "data":result,
         "unit":"Fours"
+    }
+
+def bestAverage(head):
+
+    #Best Batting Average
+
+    #Calculating Total Batsman
+    total_runs = data.groupby(["batsman"])["batsman_runs"].sum().reset_index(name="runs")
+
+#Calculating Total Innings Played
+    innings_played = (
+        data[["match_id", "inning", "batsman"]]
+        .drop_duplicates()
+        .groupby("batsman")
+        .size()
+        .reset_index(name="innings")
+    )
+
+#Calculating Total dismissed innings
+    innings_out_data = data[(data["player_dismissed"].notna()) & (data["player_dismissed"] == data["batsman"])]
+    innings_outs = innings_out_data[["match_id" , "batsman" , "player_dismissed"]].groupby("batsman").size().reset_index(name="outs")
+
+#Merging InningPlayed and InningDismissed
+    innings_data = innings_outs.merge(innings_played ,   on="batsman")
+
+#Combined all 3 dataframes
+    combined_data = innings_data.merge(total_runs ,   on="batsman")
+#Calculating Not Outs
+    combined_data["not_outs"] = combined_data["innings"] - combined_data["outs"]
+#Calculating Average
+    combined_data["average"] = round(combined_data["runs"]/(combined_data["innings"] - combined_data["not_outs"]) , 1)
+
+#Making Final Results
+    result = combined_data[["batsman" , "average"]].reset_index().sort_values(by="average" , ascending=False).rename(columns={"batsman":"name" , "average":"value"}).to_dict(orient="records")
+
+    return {
+        "heading":"Best Average of Batsman",
+        "unit":"runs/innings",
+        "data":result
+    }
+
+def bestStrikeRate(head):
+    #Best Batting Strike Rate
+
+#Calculate Total Runs
+    total_runs = data.groupby(["batsman"])["batsman_runs"].sum().reset_index(name = "runs")
+
+#Calculate Total Balls
+    legal_balls = data[data["wide_runs"]==0] #exclude wide
+    total_balls = legal_balls.groupby("batsman").size().reset_index(name="balls")
+    eligible_batsman = total_balls[total_balls["balls"] > 10] #mimium 10 balls played
+
+#Calculate StrikeRate
+    combined = total_runs.merge(eligible_batsman , on="batsman")
+    combined["strike_rate"] = round((combined["runs"] / combined["balls"])*100  , 1)
+    result = combined[["batsman" , "strike_rate"]].reset_index().sort_values(by="strike_rate" , ascending=False).rename(columns={"batsman":"name" , "strike_rate":"value"}).to_dict(orient="records")
+    result
+    return {
+        "heading":"Best Strike Rate of Batsman",
+        "unit":"",
+        "data":result
     }

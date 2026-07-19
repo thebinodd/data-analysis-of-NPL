@@ -7,11 +7,14 @@ import Link from 'next/link'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import IndividualCard from './IndividualCard'
-import { TbError404 } from "react-icons/tb";
 import { FaRegSadTear } from "react-icons/fa";
+
+import { useRouter } from 'next/navigation'
 
 
 const Stats = ({ data, unit }: any) => {
+
+    const Router = useRouter()
     
 
     return (
@@ -23,20 +26,17 @@ const Stats = ({ data, unit }: any) => {
                     <div className='h-[80vh] flex flex-col gap-6 justify-center items-center'>
                         <FaRegSadTear size={100} />
                         <h1 className='font-bold tracking-wider'>Oops! Looks Like You Lost the Way.</h1>
-                        <Link className="rounded-lg border-2 tracking-wide font-bold border-neutral-950  px-10 py-2 text-sm  shadow-[1px_1px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="/" >
-                            Way to Home →
-                        </Link>
+                        <button className="rounded-lg border-2 tracking-wide font-bold border-neutral-950  px-10 py-2 text-sm  shadow-[1px_1px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px cursor-pointer hover:shadow-none" onClick={()=>Router.back()} >
+                            ← Go Back
+                        </button>
                     </div>
 
 
 
                     : data.detail =="Something Went Wrong!" ? <div className='h-[80vh] flex flex-col gap-6 justify-center items-center'>
-
-                        
-
                         <h1>Oops! Internal Server Error</h1>
                         <Link className="rounded-lg border-2 border-neutral-950  px-10 py-2 text-sm font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="/" >
-                            Way to Home →
+                            ← Go Back
                         </Link>
                     </div> : <div className="batsmans flex flex-col w-[90vw] justify-center gap-2 items-center lg:w-[60vw]">
                         <Heading title={`${data.heading}`} />
