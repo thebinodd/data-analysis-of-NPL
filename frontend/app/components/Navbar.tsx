@@ -13,19 +13,21 @@ const Navbar = ({ heading , isHome }: Input) => {
   return (
     <div>
 
-        <header className="flex  lg:max-w-[60vw] lg:mt-10 mt-5 w-[90vw] items-center justify-between rounded-xl border-4 border-neutral-950 bg-white px-4 py-3 shadow-[6px_6px_0_0_#111827] sm:px-6">
-          <div className="flex items-center gap-3">
-            <img src="https://npl-t20.com/assets/mainlogohighquality-BTC_taV3.png" className="h-8 hidden lg:flex rounded-xl border-slate-800 border-b-6 border-r-4" alt="NPL logo" />
+        <header className={`flex  lg:max-w-[90vw]   w-[90vw] items-center justify-between rounded-sm  border-neutral-950 bg-white  ${isHome ? "px-4 py-3 border-b-4" : "px-4 py-1 border-b-2"}  sm:px-6`}>
+          <div className="flex items-center gap-3 w-auto">
+            <img src="https://nepalpostkhabar.com/wp-content/uploads/2024/12/Nepal_Premier_League2024.png" className="h-14 hidden lg:flex rounded-xl " alt="NPL logo" />
             <div className={'flex-col  md:flex lg:flex'}>
               <p className="text-xs font-bold uppercase lg:tracking-[0.35em] text-neutral-600">
                 Data Analysis
               </p>
-              <p className="text-sm hidden lg:flex font-semibold  text-neutral-950">
+              <p className="text-sm hidden lg:tracking-widest lg:flex font-semibold  text-neutral-950">
                 {heading}
               </p>
-              <p className="text-sm lg:hidden tracking-widest  flex font-bold  text-neutral-600">
+              <p className="text-sm lg:hidden tracking-widest  flex font-bold  text-neutral-900">
                 of NPL
               </p>
+              <p className={ `bg-green-400 ${isHome ? 'flex' : 'hidden'}  text-neutral-900 px-3 w-1/2 opacity-100 mt-1 text-center  text-[10px] rounded-sm`}>v Beta</p>
+
             </div>
           </div>
 

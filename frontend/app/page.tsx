@@ -10,9 +10,9 @@ export default function Home() {
         
         <Navbar heading="NPL Insights" isHome={true} />
 
-        <main className="flex flex-1 max-w-[60vw]  w-[90vw] items-center justify-center py-5 sm:py-14">
-          <div className="grid  items-center  gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-            <section className="rounded-4xl  w-[90vw] flex flex-col justify-center items-start lg:w-[60vw] gap-2 lg:gap-1 border-4 border-neutral-950 bg-white p-7 shadow-[10px_10px_0_0_#111827] sm:p-10">
+        <main className="flex flex-1 max-w-[90vw]  w-[90vw] items-center justify-center py-5 sm:py-14">
+          <div className="grid w-full items-center   gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+            <section className="rounded-xl  w-[90vw] lg:py-10 flex flex-col justify-center items-start  gap-2 lg:gap-1 border-4 border-neutral-950 bg-white p-7  sm:p-10">
               <p className="inline-flex rounded-full border-2 border-neutral-950 bg-lime-300 px-4 py-2 text-xs font-bold uppercase ">
                 Data from 2024 and 2025 NPL Seasons
               </p>
