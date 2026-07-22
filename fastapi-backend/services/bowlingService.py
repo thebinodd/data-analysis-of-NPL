@@ -2,14 +2,19 @@ from fastapi import FastAPI
 from data.dataset import data
 
 def mostWickets(head):
-
-    result = (data[data["dismissal_kind"]
-                   .notna()]
-                   .groupby("bowler")["bowler"]
-                   .value_counts()
-                   .sort_values(ascending=False)
-                   .reset_index()
-                   .head(head)
+    dismissal_data = data[ (data["dismissal_kind"].notna()) & ( data["dismissal_kind"]
+    .isin(["Bowled" , "bowled" ,
+        "Stumped" , "stumped" ,
+        "Caught" , "caught" ,
+        "LBW" , "lbw" , 
+        "Caught & Bowled" , "caught & bowled",
+        "hit wicket"
+       ]) ) ]
+    dismissal_data.head()
+    result = (dismissal_data.groupby("bowler")
+              .size().reset_index(name="count")
+              .sort_values(by="count" , ascending=False)
+              .rename(columns={"bowler":"name" , "count":"value"})
                    .rename(columns={"bowler":"name" , "count":"value"})
                    .to_dict(orient="records"))
     return {
