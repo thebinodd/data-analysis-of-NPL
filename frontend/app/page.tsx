@@ -1,18 +1,19 @@
 "use client";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function Home() {
 
   return (
-    <main className="max-h-screen   text-neutral-950">
+    <main className="max-h-screen bg-[#FAF9F6]  text-neutral-950">
       <section className=" flex min-h-screen justify-center items-center w-screen  flex-col pb-5 sm:px-8 lg:px-10">
         
         <Navbar heading="NPL Insights" isHome={true} />
 
         <main className="flex flex-1 max-w-[90vw]  w-[90vw] items-center justify-center py-5 sm:py-14">
           <div className="grid w-full items-center   gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-            <section className="rounded-xl  w-[90vw] lg:py-10 flex flex-col justify-center items-start  gap-2 lg:gap-1 border-4 border-neutral-950 bg-white p-7  sm:p-10">
+            <section className="rounded-xl  w-[90vw] lg:py-10 flex flex-col justify-center items-start  gap-2 lg:gap-1  bg-white p-7  sm:p-10">
               <p className="inline-flex rounded-full border-2 border-neutral-950 bg-lime-300 px-4 py-2 text-xs font-bold uppercase ">
                 Data from 2024 and 2025 NPL Seasons
               </p>
@@ -50,9 +51,7 @@ export default function Home() {
              
           </div>
         </main>
-        <p className="text-xs font-bold uppercase lg:tracking-[0.15em] text-neutral-600">
-                Made with ❣️ by Binod
-              </p>
+        <Footer />
       </section>
       
     </main>

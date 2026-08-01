@@ -26,7 +26,6 @@ const Navbar = ({ heading , isHome }: Input) => {
               <p className="text-sm lg:hidden tracking-widest  flex font-bold  text-neutral-900">
                 of NPL
               </p>
-              <p className={ `bg-green-400 ${isHome ? 'flex' : 'hidden'}  text-neutral-900 px-3 w-1/2 opacity-100 mt-1 text-center  text-[10px] rounded-sm`}>v Beta</p>
 
             </div>
           </div>
@@ -40,6 +39,8 @@ const Navbar = ({ heading , isHome }: Input) => {
             <Link className="rounded-lg border-2 border-neutral-950 bg-slate-300 px-4 py-2 text-xs font-semibold shadow-[3px_3px_0_0_#111827] transition hover:translate-x-px hover:translate-y-px hover:shadow-none" href="https://www.kaggle.com/datasets/samarpanrai/nepal-premier-league-2024-ball-by-ball-data?select=NPL-2024.csv" target="_blank">
               Datasets
             </Link>
+
+            
             
             
           </nav> : <nav className="flex items-center gap-2 md:flex">
