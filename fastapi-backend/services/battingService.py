@@ -182,3 +182,53 @@ def bestStrikeRate(head):
         "unit":"",
         "data":result
     }
+
+
+def mostDucks(head):
+    new_data = data.groupby(["match_id" , "batsman"])["batsman_runs"].sum().reset_index(name="runs")
+    ducks = new_data[new_data["runs"] == 0]
+    result = (ducks.groupby("batsman")
+              .size()
+              .reset_index(name="ducks")
+              .sort_values(by="ducks" , ascending=False)
+              .rename(columns={"batsman":"name" , "ducks":"value"})
+              .to_dict(orient="records")
+
+              )
+    return {
+            "heading":"Most Ducks (0 run) by batsman",
+            "unit":"ducks",
+            "data":result
+        }
+
+def mostGoldenDucks(head):
+    #Most Golden Ducks
+
+#Calculate total runs in each match
+    total_runs = data.groupby(["match_id" , "batsman"])["batsman_runs"].sum().reset_index(name="runs")
+
+#Calculate Total Balls in each match
+    legal_balls = data[data["wide_runs"]==0] #exclude wide
+    total_balls = legal_balls.groupby(["match_id" , "batsman"])["batsman_runs"].size().reset_index(name="balls")
+
+
+# combined_data
+    combined_data = total_balls.merge(total_runs , on=["match_id", "batsman"])
+
+#Total Golden Ducks
+    total_golden_ducks = combined_data[(combined_data["runs"]==0) & (combined_data["balls"] == 1)]
+    result = (total_golden_ducks
+              .groupby("batsman")
+              .size()
+              .reset_index(name="golden_ducks")
+              .sort_values(ascending=False , by="golden_ducks")
+              .rename(columns={"batsman":"name" , "golden_ducks":"value"})
+              .to_dict(orient="records")
+
+
+              )
+    return {
+                "heading":"Most Golden Ducks (0 run & 1 ball) by batsman",
+                "unit":"golden ducks",
+                "data":result
+            }

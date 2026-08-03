@@ -24,9 +24,9 @@ const page = () => {
                             <ListCard title="Most Fours" url="/numeric/most_fours" />
                             <ListCard title="Most Sixes" url="/numeric/most_sixes" />
                             <ListCard title="Most Nineties" url="/numeric/most_nineties" />
-                            {/* <ListCard title="Most Dot Balls" url="/numeric/most_dot_balls" />
+                            <ListCard title="Most Dot Balls" url="/numeric/most_dot_balls" />
                             <ListCard title="Most Ducks" url="/numeric/most_ducks" />
-                            <ListCard title="Most Golden Ducks" url="/numeric/most_golden_ducks" /> */}
+                            <ListCard title="Most Golden Ducks" url="/numeric/most_golden_ducks" />
 
                         </div>
 
@@ -80,7 +80,9 @@ const page = () => {
 
                     <div className="fieldingStats flex lg:flex-row flex-col gap-4">
                         <div className="lef flex flex-col justify-center gap-2  items-center">
-                            <ListCard title="Most Catch Taken" url="/numeric/most_catch_taken" />
+                            <ListCard title="Most Catch Taken" url="/numeric/most_catches_taken" />
+                            <ListCard title="Most Stumping" url="/numeric/most_stumping" />
+                            <ListCard title="Most Run Outs" url="/numeric/most_run_outs" />
                         </div>
 
                     </div>

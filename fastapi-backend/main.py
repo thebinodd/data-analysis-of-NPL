@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from routes.battingRoute import router as batting_router
 from routes.bowlingRoute import router as bowling_router
+from routes.fieldingRoute import router as fielding_router
 
 from dotenv import load_dotenv
 
@@ -24,7 +25,7 @@ app.add_middleware(
 
 app.include_router(batting_router)
 app.include_router(bowling_router)
-
+app.include_router(fielding_router)
 
 
 @app.get("/")
